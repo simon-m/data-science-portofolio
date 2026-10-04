@@ -13,7 +13,11 @@ dependencies = [
     "numpy (>=2.5.3,<3.0.0)",
     "scikit-learn (>=1.9.1,<2.0.0)",
     "pandas (>=3.0.6,<4.0.0)",
-    "ipython (>=9.17.1,<10.0.0)"
+    "ipython (>=9.17.1,<10.0.0)",
+    "pyqt6 (>=6.11.0,<7.0.0)",
+    "pyqt5 (>=5.15.11,<6.0.0)",
+    "ruff (>=0.16.10,<0.17.0)",
+    "mypy (>=2.4.0,<3.0.0)"
 ]
 
 [tool.poetry]
@@ -22,3 +26,10 @@ package-mode = false
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*"]
+follow_untyped_imports = true
+
+[tool.ruff.lint]
+ignore = ["I"] # Unsorted imports
