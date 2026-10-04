@@ -52,3 +52,6 @@ if __name__ == "__main__":
 
     IPython.embed()
 
+    for name, imp in zip(X.columns, best_model.named_steps["classifier"].feature_importances_):
+        print(name, round(100 * imp, 2))
+
